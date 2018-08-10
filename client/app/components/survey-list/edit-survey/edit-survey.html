@@ -1,0 +1,107 @@
+<form name="surveyform" role="form" class="form-horizontal add-survey-form" novalidate>
+    <!--QB Survey ID-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">QB Survey ID</label>
+        <div class="col-xs-6">
+            <input class="form-control" type="text" name="questbackSurveyId" ng-model="vm.survey.questbackSurveyId" disabled />
+        </div>
+    </div>
+    <hr/>
+    <!--Survey GUID-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Survey GUID</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="id"value="{{vm.survey.id}}" disabled />
+        </div>
+    </div>
+    <!--Survey In App Name-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Survey In App Name</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="surveyInAppName" ng-model="vm.survey.surveyInAppName" maxlength="500" />
+        </div>
+    </div>
+    <!--Survey Internal Name-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Survey Internal Name</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="surveyInternalName" ng-model="vm.survey.surveyInternalName" maxlength="500" />
+        </div>
+    </div>
+    <!--Tokens-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Tokens</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="token" ng-model="vm.survey.token" maxlength="500" />
+        </div>
+    </div>
+    <!--Survey Expiry Date/Time-->
+    <div class="form-group" ng-class="{'has-error' : surveyform.expiryDate.$invalid}">
+        <label class="col-xs-4 control-label">Survey Expiry Date/Time</label>
+        <div class="col-xs-6">
+            <div ng-class="{'input-group' : vm.survey.surveyExpiryDateTime}">
+                <input type="text" class="form-control" name="expiryDate" ng-model="vm.survey.surveyExpiryDateTime"
+                    date-format="{{vm.dateTimeFormat}}" start-date="{{vm.minExpiryDate}}" hour="23" minute="59" datetime-picker readonly/>
+            </div>
+            <div ng-show="surveyform.expiryDate.$invalid" class="help-block" ng-messages="surveyform.expiryDate.$error">
+                <div ng-message="future-only">Survey Expiry Date/Time cannot be less than the current date</div>
+            </div>
+        </div>
+    </div>    
+    <!--Survey Duration Days -->
+    <div class="form-group" ng-class="{'has-error': surveyform.surveyDurationDays.$invalid && surveyform.surveyDurationDays.$dirty}">
+        <label class="col-xs-4 control-label">Survey Duration Days</label>
+        <div class="col-xs-6">
+            <input type="number" min="0" max="1000"  class="form-control" name="surveyDurationDays" ng-model="vm.survey.surveyDurationDays" value="{{vm.survey.surveyDurationDays}}" maxlength="4" ng-pattern="vm.numericPattern"/>
+                <div ng-show="surveyform.surveyDurationDays.$invalid && surveyform.surveyDurationDays.$dirty" class="help-block" ng-messages="surveyform.surveyDurationDays.$error">
+                <div ng-message="min">You can not enter below 0</div>
+                <div ng-message="max">You can not enter above 1000</div>            
+                <div ng-message="pattern">This field should contain only digits from 0 to 1000</div>
+            </div>
+        </div>
+    </div>
+    <!--Survey Duration Hours -->
+    <div class="form-group" ng-class="{'has-error': surveyform.surveyDurationHours.$invalid && surveyform.surveyDurationHours.$dirty}">
+        <label class="col-xs-4 control-label">Survey Duration Hours</label>
+        <div class="col-xs-6">
+            <input type="number" min="0" max="23"  class="form-control" name="surveyDurationHours" ng-model="vm.survey.surveyDurationHours" value="{{vm.survey.surveyDurationHours}}" maxlength="2" ng-pattern="vm.numericPattern"/>
+                <div ng-show="surveyform.surveyDurationHours.$invalid && surveyform.surveyDurationHours.$dirty" class="help-block" ng-messages="surveyform.surveyDurationHours.$error">
+                <div ng-message="min">YOu can not enter below 0</div>
+                <div ng-message="max">You can not enter above 23</div>            
+                <div ng-message="pattern">This field should contain only digits from 0 to 23</div>
+            </div>
+        </div>
+    </div>
+    <!--Survey Time-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Survey Time (in Minutes)</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="surveyTime" ng-model="vm.survey.surveyTime" maxlength="500" />
+        </div>
+    </div>
+    <!--Survey Launch Date-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Survey Launch Date</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="surveyTime" value="{{vm.survey.surveyLaunchDate | date : 'yyyy/MM/dd'}}" disabled />
+        </div>
+    </div>
+    <!--User Count-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">User Count</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="userCount"value="{{vm.survey.userCount}}" disabled />
+        </div>
+    </div>
+    <!--Allow notification-->
+    <div class="form-group">
+        <label class="col-xs-4 control-label">Allow Notification</label>
+        <div class="col-xs-2">
+            <input type="checkbox" name="allowNotification" ng-model="vm.survey.allowNotification" />
+        </div>
+    </div>
+    <div class="form-group form-footer">
+        <button class="btn btn-success" ng-click="vm.save()" ng-disabled="surveyform.$invalid">Save</button>
+        <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</form>

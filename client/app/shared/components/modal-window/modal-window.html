@@ -1,0 +1,18 @@
+<div class="modal-header">
+    <button aria-label="Close" class="close" type="button" ng-click="modalWindow.cancel()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h3 class="modal-title">{{modalWindow.params.title}}</h3>
+</div>
+<div class="modal-body">
+    <div ng-include="modalWindow.params.innerContent" ng-if="!modalWindow.params.hasOnlyText"></div>
+    <div ng-bind="modalWindow.params.data" ng-if="modalWindow.params.hasOnlyText"></div>
+</div>
+<div class="modal-footer" ng-if="modalWindow.params.options.showOk || modalWindow.params.options.showCancel">
+    <button class="btn btn-success" type="button" ng-if="modalWindow.params.options.showOk" ng-click="modalWindow.ok()"> 
+        {{modalWindow.params.options.textOk}}
+    </button>
+    <button class="btn btn-default" type="button" ng-if="modalWindow.params.options.showCancel" ng-click="modalWindow.cancel()">
+        {{modalWindow.params.options.textCancel}}
+    </button>
+</div>

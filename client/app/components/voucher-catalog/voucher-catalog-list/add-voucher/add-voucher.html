@@ -1,0 +1,55 @@
+<form name="voucherform" role="form" class="form-horizontal add-voucher-form" novalidate>
+    <div class="form-group" ng-class="{'has-error': voucherform.voucherName.$invalid && voucherform.voucherName.$dirty}">
+        <label class="col-xs-4 control-label">Voucher Name</label>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" name="voucherName" ng-model="vm.voucher.name" maxlength="255" required ng-disabled="vm.voucher.id" />
+            <div ng-show="voucherform.voucherName.$invalid && voucherform.voucherName.$dirty" class="help-block">
+                This field is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': voucherform.voucherTerms.$invalid && voucherform.voucherTerms.$dirty}">
+        <label class="col-xs-4 control-label">Terms</label>
+        <div class="col-xs-6">
+            <textarea type="text" class="form-control" name="voucherTerms" ng-model="vm.voucher.terms" required></textarea>
+            <div ng-show="voucherform.voucherTerms.$invalid && voucherform.voucherTerms.$dirty" class="help-block">
+                This field is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': voucherform.voucherDetails.$invalid && voucherform.voucherDetails.$dirty}">
+        <label class="col-xs-4 control-label">Details</label>
+        <div class="col-xs-6">
+            <textarea type="text" class="form-control" name="voucherDetails" ng-model="vm.voucher.details" required></textarea>
+            <div ng-show="voucherform.voucherDetails.$invalid && voucherform.voucherDetails.$dirty" class="help-block">
+                This field is required
+            </div>
+        </div>
+    </div>
+    <div class="form-group" ng-class="{'has-error': voucherform.voucherTokens.$invalid && voucherform.voucherTokens.$dirty}">
+        <label class="col-xs-4 control-label">Tokens per £1</label>
+        <div class="col-xs-6">
+            <input type="number" class="form-control" name="voucherTokens" ng-model="vm.voucher.tokensPer1Pound" required min="1" ng-pattern="vm.numericPattern" />
+            <div ng-show="voucherform.voucherTokens.$invalid && voucherform.voucherTokens.$dirty" class="help-block" ng-messages="voucherform.voucherTokens.$error">
+                <div ng-message="required">This field is required</div>
+                <div ng-message="pattern">This field should contain only digits</div>
+                <div ng-message="min">This field should be more than 0</div>
+            </div>
+        </div>
+    </div>
+    <!--UKABE-616 : Add VoucherValue field to Voucher Catalog on Admin UI -->
+    <div class="form-group" ng-class="{'has-error': voucherform.voucherValue.$invalid && voucherform.voucherValue.$dirty}">
+        <label class="col-xs-4 control-label">Voucher Value</label>
+        <div class="col-xs-6">
+            <input type="number" class="form-control" name="voucherValue" ng-model="vm.voucher.voucherValue" ng-pattern="vm.numericPattern" />
+            <div ng-show="voucherform.voucherValue.$invalid && voucherform.voucherValue.$dirty" class="help-block" ng-messages="voucherform.voucherValue.$error">
+                <div ng-message="pattern">This field should contain only digits</div>
+                <div ng-message="min">This field should be more than -1</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="vm.save()" ng-disabled="voucherform.$invalid">Save</button>
+        <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+    </div>
+</form>

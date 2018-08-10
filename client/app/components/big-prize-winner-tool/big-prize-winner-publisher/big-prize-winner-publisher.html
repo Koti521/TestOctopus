@@ -1,0 +1,12 @@
+<div ui-grid="vm.gridOptions" class="grid" ui-grid-selection ui-grid-edit ui-grid-row-edit ui-grid-auto-resize></div>
+
+<div class="publish-big-prize-winners-grid-action-buttons"></div>
+<div class='pull-left'>
+    <button class="btn btn-default btn-info" ng-click="vm.addRow()"><span class="glyphicon glyphicon-plus"></span> Add row</button>
+    <button class="btn btn-default btn-warning" ng-click="vm.removeRow()" ng-disabled="!vm.hasSelectedRow()"><span class="glyphicon glyphicon-remove"></span> Remove row</button>
+</div>
+<div class="pull-right">
+    <button class="btn btn-success" ng-click="vm.save()"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+</div>
+<div class="clearfix"></div>
+

@@ -1,0 +1,40 @@
+<h1>Bulk Shop Lookup Updater</h1>
+
+<div class="download-file">
+    <h4>Download Shopname Lookup Table</h3> 
+    <a target="_self" class="btn btn-success" ng-click="vm.saveShopListFile()">
+        <span class="glyphicon glyphicon-download"></span> Download
+    </a>
+</div>
+
+<h3>File upload</h3>
+
+<div>
+    <input type="file" nv-file-select="" uploader="vm.uploader" accept=".csv" />
+</div>
+
+<div>
+    <span>Uploading progress:</span>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" ng-style="{ 'width': vm.uploader.progress + '%' }"></div>
+    </div>
+</div>
+
+<div class="alert alert-success" ng-show="vm.uploadResult.successedMessage !== undefined">
+    {{vm.uploadResult.successedMessage}}
+</div>
+<div class="alert alert-danger" ng-show="vm.uploadResult.errorMessage !== undefined">
+    <div>{{vm.uploadResult.errorMessage}}</div>
+    <div ng-show="vm.uploadResult.bulkId !== undefined">
+        <a class="alert-link" ng-click="vm.saveLogFile(vm.uploadResult.bulkId)">Log file</a>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-success" ng-click="vm.uploader.uploadAll()" ng-disabled="!vm.uploader.getNotUploadedItems().length">
+        <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+    <button type="button" class="btn btn-warning" ng-click="vm.uploader.cancelAll()" ng-disabled="!vm.uploader.isUploading">
+           <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+    </button>
+</div>

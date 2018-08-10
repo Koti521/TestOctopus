@@ -1,0 +1,13 @@
+<missing-transcriptions-grid-date-filter default-from-date="vm.filter.fromDate" default-to-date="vm.filter.toDate" 
+    on-filter="vm.filterTranscriptionsByDate(fromDate, toDate)" on-invalid-data-specified="vm.showInvalidDateMessage()">
+</missing-transcriptions-grid-date-filter>
+
+<div ui-grid="vm.gridOptions" class="grid" ui-grid-pagination ui-grid-selection></div>
+
+<div class="pull-left">
+    <button class="btn btn-success" ng-click="vm.selectAll()"><span class="glyphicon glyphicon glyphicon-check"></span> Select All</button>
+    <button class="btn btn-default" ng-click="vm.deselectAll()"><span class="glyphicon glyphicon glyphicon-unchecked"></span> Deselect All</button>
+    <button class="btn btn-info" ng-click="vm.retry()" ng-disabled="vm.retryDisable()"><span class="glyphicon glyphicon-repeat"></span> Retry</button>
+    <button class="btn btn-danger" ng-click="vm.markAsFailed()" ng-disabled="vm.markAsFailedDisable()"><span class="glyphicon glyphicon-remove-circle"></span> Mark as Failed</button>
+</div>
+<div class="clearfix"></div>

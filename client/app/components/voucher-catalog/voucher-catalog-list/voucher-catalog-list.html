@@ -1,0 +1,15 @@
+<div class="pull-right voucher-reference-buttons">
+    <button class="btn btn-success" ng-click="vm.addRow()"><span class="glyphicon glyphicon-plus"></span> Add Voucher Reference</button>
+</div>
+<div class="clearfix"></div>
+
+<div ui-grid="vm.gridOptions" class="grid" ui-grid-pagination ui-grid-auto-resize ui-grid-selection></div>
+
+<div class="pull-right">
+    <button class="btn btn-info" ng-click="vm.editRow()" ng-disabled="!vm.selectedVoucher"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+    <button class="btn btn-danger" ng-click="vm.removeRow()" ng-disabled="!vm.selectedVoucher"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+</div>
+
+<script type="text/ng-template" id="add-update-voucher-template.html">
+    <add-voucher voucher="modalWindow.voucher" on-canceled="modalWindow.cancel()" on-saved="modalWindow.ok(result)"></add-voucher>
+</script>

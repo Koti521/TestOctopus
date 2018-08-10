@@ -1,0 +1,36 @@
+<h1>Receipt Details</h1>
+
+<div class="clearfix"></div>
+<div class="alert alert-danger" id="validationDiv" style="display:none">
+    <label name="lblValidation" id="lblValidation"></label>
+</div>
+<div class="row container-fluid">
+    Search value
+    <input type="text" class="form-control search-text-input search-text-input-appuserid" ng-model="vm.filter.searchParameterValue" />
+    <select name="cars" class="form-control search-text-input search-text-input-dropdown" ng-model="vm.filter.searchParameterName">
+        <option value="APPUSERID">App User Id</option>
+        <option value="SHORTID">Short Id</option>
+        <option value="RECEIPTID">Receipt Id</option>
+      </select>
+    <input type="button" value="Search" class="btn btn-default btn-margin" ng-click="vm.searchAppUser()" ng-disabled="!(vm.filter.searchParameterValue && vm.filter.searchParameterName)"/>
+</div>
+<div ng-if="vm.gridOptions.data">
+    <h3 class="pull-left">Receipt Details List</h3>
+    <div class="clearfix"></div>
+
+    <div ui-grid="vm.gridOptions" class="grid" ui-grid-pagination ui-grid-selection></div>
+
+    <div class="text-center">
+        <button class="btn btn-info" ng-click="vm.showImages()" ng-disabled="!vm.selectedReceiptDetails">Show Images</button>
+    </div>
+</div>
+
+<div ng-show="vm.notFound" class="text-center">
+    <h4>Not found</h4>
+</div>
+
+
+<!--Add images modal window template-->
+<script type="text/ng-template" id="show-images-template.html">
+    <show-images receipt-id="modalWindow.receiptId" on-canceled="modalWindow.cancel()"></show-images>
+</script>

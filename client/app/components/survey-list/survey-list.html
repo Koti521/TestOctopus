@@ -1,0 +1,38 @@
+<h1>Morpheus Survey Sampling Tool</h1>
+
+<div class="row pull-right container-fluid">
+	<button class="btn btn-default" ng-click="vm.refreshSurveys()"><span class="glyphicon glyphicon-refresh"></span>Refresh Surveys</button> 
+    <button class="btn btn-success" ng-click="vm.addSurvey()"><span class="glyphicon glyphicon-plus"></span> Add Survey</button> 
+    <button class="btn btn-default" ng-click="vm.showSearchBar()"><span class="glyphicon glyphicon-search"></span> Search Survey</button>
+</div>
+<div class="clearfix"></div>
+<div class="row container-fluid" ng-show="vm.isSearchActivated">
+    Survey In App Name
+    <input type="text" class="form-control search-text-input" ng-model="vm.surveyInAppName"/>
+    Survey Internal Name
+    <input type="text" class="form-control search-text-input" ng-model="vm.surveyInternalName"/>
+    <input type="button" value="Search" class="btn btn-default" ng-click="vm.searchSurvey()" />
+</div>
+<h3 class="pull-left">Survey List</h3>
+<div class="clearfix"></div>
+
+<div ui-grid="vm.gridOptions" class="grid" ui-grid-pagination ui-grid-selection></div>
+
+<div class="pull-right">
+    <button class="btn btn-info" ng-click="vm.editSurvey()" ng-disabled="vm.editSurveyDisable()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+    <button class="btn btn-default" ng-click="vm.deactivateSurvey()" ng-disabled="vm.deactivateSurveyDisable()"><span class="glyphicon glyphicon-off"></span> Deactivate</button>
+    <button class="btn btn-default" ng-click="vm.refreshSurveyUsers()" ng-disabled="vm.refreshSurveyUsersDisable()"><span class="glyphicon glyphicon-refresh"></span> Refresh Users</button>
+    <button class="btn btn-primary" ng-click="vm.launchSurvey()" ng-disabled="vm.launchSurveyDisable()"><span class="glyphicon glyphicon-fire"></span> Launch Survey</button>
+</div>
+<div class="clearfix"></div>
+
+<!--Add survey modal window template-->
+<script type="text/ng-template" id="add-survey-template.html">
+    <add-survey on-canceled="modalWindow.cancel()" on-saved="modalWindow.ok(result)"></add-survey>
+</script>
+
+<!--Edit survey modal window template-->
+<script type="text/ng-template" id="edit-survey-template.html">
+    <edit-survey survey-id="modalWindow.surveyId" on-canceled="modalWindow.cancel()" on-saved="modalWindow.ok(result)"></edit-survey>
+</script>
+

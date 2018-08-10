@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"> Admin Tool</a>
+        </div>
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li ng-class="{'active': vm.isActive('survey-list')}"><a ui-sref="survey-list">Survey List</a></li>
+                <li ng-class="{'active': vm.isActive('big-prize-winner-tool')}"><a ui-sref="big-prize-winner-tool">Publish Big Prize Winners</a></li>
+                <li ng-class="{'active': vm.isActive('voucher-catalog')}"><a ui-sref="voucher-catalog">Voucher Catalog</a></li>
+                <li class="dropdown" uib-dropdown on-toggle="toggled(open)" keyboard-nav>
+                    <a href id="simple-dropdown" uib-dropdown-toggle>Receipt <span class="caret"></span></a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-btn-keyboard-nav">
+                        <li ng-class="{'active': vm.isActive('receipt-details-list')}"><a ui-sref="receipt-details-list">Receipt Details List</a></li>
+                        <li ng-class="{'active': vm.isActive('missing-transcriptions')}"><a ui-sref="missing-transcriptions">Missing Transcriptions</a></li>
+                    </ul>
+                </li>   
+                <li class="dropdown" uib-dropdown on-toggle="toggled(open)" keyboard-nav>
+                    <a href id="simple-dropdown" uib-dropdown-toggle>Bulk Load <span class="caret"></span></a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-btn-keyboard-nav">
+                        <li ng-class="{'active': vm.isActive('bulk-load-incentives')}"><a ui-sref="bulk-load-incentives">Bulk Load Of Incentives</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-notifications')}"><a ui-sref="bulk-load-notifications">Bulk Load Of Notifications</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-invitations')}"><a ui-sref="bulk-load-invitations">Bulk Load of Shoppix Online Invitations</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-exclusion')}"><a ui-sref="bulk-load-exclusion">Bulk Load Exclusions to Shoppix Online</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-remove')}"><a ui-sref="bulk-load-remove">Bulk Load Removal of Shoppix Online Exclusion</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-shop-lookup-updater')}"><a ui-sref="bulk-shop-lookup-updater">Bulk Shop Lookup Updater</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-referraldetails')}"><a ui-sref="bulk-load-referraldetails">Bulk Upload of Referral Details</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-load-expirydates')}"><a ui-sref="bulk-load-expirydates">Bulk Load of Shoppix Online Expiry Dates</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown" uib-dropdown on-toggle="toggled(open)" keyboard-nav>
+                    <a href id="simple-dropdown" uib-dropdown-toggle>Error Log <span class="caret"></span></a>
+                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-btn-keyboard-nav">
+                        <li ng-class="{'active': vm.isActive('bulk-notification-error-log')}"><a ui-sref="bulk-notification-error-log">Bulk Notification Error Log</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-incentive-error-log')}"><a ui-sref="bulk-incentive-error-log">Bulk Incentives Error Log</a></li>
+                        <li ng-class="{'active': vm.isActive('bulk-invitation-error-log')}"><a ui-sref="bulk-invitation-error-log">Bulk Shoppix Online Invitation Error Log</a></li> 
+                        <li ng-class="{'active': vm.isActive('bulk-exclusion-error-log')}"><a ui-sref="bulk-exclusion-error-log">Bulk Shoppix Online Exclusion Error Log </a></li> 
+                        <li ng-class="{'active': vm.isActive('bulk-remove-error-log')}"><a ui-sref="bulk-remove-error-log">Bulk Removal of Shoppix Online Exclusion </a></li> 
+                        <li ng-class="{'active': vm.isActive('bulk-referraldetails-error-log')}"><a ui-sref="bulk-referraldetails-error-log">Bulk Upload Referral Error Log</a></li> 
+                        <li ng-class="{'active': vm.isActive('bulk-expirydates-error-log')}"><a ui-sref="bulk-expirydates-error-log">Bulk Expiry Dates Error log </a></li> 
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="vm.logout()">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,21 @@
+<form class="form-inline">
+    <div class="row">
+        <!-- FromDate filter -->
+        <div class="form-group col-sm-3">
+            <label>From </label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="fromDate" ng-model="vm.fromDate" date-format="{{vm.dateTimeFormat}}" end-date="{{vm.toDate || vm.maxDate}}"
+                    datetime-picker readonly/>
+            </div>
+        </div>
+        <!-- ToDate filter -->
+        <div class="form-group col-sm-3">
+            <label>To </label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="toDate" ng-model="vm.toDate" start-date="{{vm.fromDate}}" end-date="{{vm.maxDate}}"
+                    date-format="{{vm.dateTimeFormat}}" datetime-picker readonly/>
+            </div>
+        </div>
+        <button class="btn btn-info" ng-click="vm.submitFilter()"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+    </div>
+</form>

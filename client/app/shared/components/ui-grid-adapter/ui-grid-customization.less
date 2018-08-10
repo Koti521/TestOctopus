@@ -1,0 +1,259 @@
+@import './_variables.less';
+
+.grid {
+    width: 100%;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 25px;
+}
+
+.ui-grid {
+    border: 1px solid @grid-border-color;
+    border-radius: @grid-border-radius;
+
+    .ui-grid-pager-panel {
+        border-top: 1px solid @grid-border-color;
+    }
+}
+
+.ui-grid-row {
+    border-bottom: 1px solid @row-border-color !important;
+
+    &:nth-child(even) {
+        background-color: @even-row-color;
+
+        .ui-grid-cell {
+            background-color: transparent;
+        }
+
+        &:hover {
+            background-color: @hover-row-color; 
+        }
+    }
+
+    &:nth-child(odd) {
+        background-color: @odd-row-color;
+
+        .ui-grid-cell {
+            background-color: transparent;
+        }
+
+        &:hover {
+            background-color: @hover-row-color; 
+        }
+    }
+}
+
+.ui-grid-row, .ui-grid-cell {
+    height: auto !important;
+}
+
+.ui-grid-row, .ui-grid-cell {
+    border: 0;
+    border-left: 0;
+    border-right: 0; 
+}
+
+.ui-grid-column-menu-button {
+    .ui-grid-icon-angle-down {
+        display: none;
+    }
+}
+
+.ui-grid-header-cell-label {
+    white-space: pre-line;
+}
+
+.ui-grid-viewport .ui-grid-cell-contents {
+    word-wrap: break-word;
+    white-space: normal !important;
+}
+
+.ui-grid-cell-contents {
+    white-space: pre-line !important;
+}
+
+.ui-grid-row div[role=row] {
+    display: flex ;
+    align-content: stretch;
+}
+
+.ui-grid-pager-max-pages-number {
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.ui-grid-header-cell-label {
+    display: inline-block;
+    height: auto;
+    line-height: 15px;
+    width: 100%;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: normal;
+    padding: 0;
+}
+
+.ui-grid-header-cell .ui-grid-sort-priority-number {
+    margin-left: -5px;
+}
+
+/* Add an extra class to be able to select text when using enableFullRowSelection */
+.ui-grid-selectable .ui-grid-disable-selection {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    cursor:auto;
+}
+
+.ui-grid-top-panel {
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+  background: @header-color;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #ffffff), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #ffffff, #ffffff);
+  background: -moz-linear-gradient(center bottom, #ffffff 0%, #ffffff 100%);
+  background: -o-linear-gradient(#ffffff, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.ui-grid-header-viewport {
+  overflow: hidden;
+  line-height: 15px;
+    
+}
+.ui-grid-header-canvas {
+  position: relative;
+}
+.ui-grid-header-canvas:before,
+.ui-grid-header-canvas:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.ui-grid-header-canvas:after {
+  clear: both;
+}
+.ui-grid-header-cell {
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  top: 0;
+  bottom: 0;
+  background-color: inherit;
+  border-right: 0 solid;
+  border-color: @grid-border-color;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 0;
+  border-right: 0 solid;
+}
+
+.ui-grid-header-cell .sortable {
+  cursor: pointer;
+}
+
+.ui-grid-header .ui-grid-vertical-bar {
+  top: 0;
+  bottom: 0;
+}
+
+/** Section to Replace pagination buttons */
+
+.ui-grid-pager-control button,
+.ui-grid-pager-control button:enabled,
+.ui-grid-pager-control button:hover {
+    border: 0;
+    background-color: transparent; 
+}
+.ui-grid-pager-control .first-triangle,
+.ui-grid-pager-control .last-triangle {
+    border: 0;
+    height: inherit;
+    font-family: 'Glyphicons Halflings';
+    font-size: 14px;
+    color: #000000;
+    margin-top: -2px;
+}
+.ui-grid-pager-control .first-triangle {
+    margin-left: -5px;
+}
+.ui-grid-pager-control .last-triangle {
+    margin-left: -7px;
+}
+.first-triangle::before {
+    border: 0; 
+    content: "\e257";
+}
+.last-triangle::before {
+    border: 0; 
+    content: "\e258";
+}
+.ui-grid-pager-control .first-bar,
+.ui-grid-pager-control .last-bar {
+    width: 10px;
+    border-left: 2px solid #4d4d4d;
+    height: 14px;
+    margin-top: -17px;
+}
+.ui-grid-pager-control .first-bar {
+    margin-left: 0;
+}
+.ui-grid-pager-control .last-bar {
+    margin-left: 12px;
+}
+.ui-grid-pinned-container-left ~ .ui-grid-pager-panel > .ui-grid-pager-container {
+    margin-left: 20px;
+}
+/* remove spinner on the page input */
+.ui-grid-pager-control-input {
+    -moz-appearance:textfield;
+}
+.ui-grid-pager-control-input::-webkit-outer-spin-button,
+.ui-grid-pager-control-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+/* remove dotted line under the slash of: page 1 / 10 */
+abbr[title] {
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+}
+
+// Selection checkboxes
+.ui-grid-selection-row-header-buttons {
+    opacity: 0.2;
+}
+
+.ui-grid-pinned-container.ui-grid-pinned-container-left {
+    .ui-grid-header-cell:last-child, .ui-grid-cell:last-child {
+        border: none;
+    }
+}
+
+// Footer info
+.ui-grid-footer-info {
+    padding: 5px;
+}

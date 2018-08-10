@@ -1,0 +1,31 @@
+<h1>Bulk Load Removal of Shoppix Online Exclusion</h1>
+
+<h3>File upload</h3>
+
+<div>
+    <input type="file" nv-file-select="" uploader="vm.uploader" accept=".csv"/>
+</div>
+
+<div>
+    <span>Uploading progress:</span>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" ng-style="{ 'width': vm.uploader.progress + '%' }"></div>
+    </div>
+</div>
+
+<div class="alert alert-success" ng-show="vm.uploadResult.successedMessage !== undefined">
+    <div>{{vm.uploadResult.successedMessage}}</div>
+    <div><a ui-sref="bulk-remove-error-log" class="alert-link">Bulk removal exclusion error log</a></div>
+</div>
+<div class="alert alert-danger" ng-show="vm.uploadResult.errorMessage !== undefined">
+    <div>{{vm.uploadResult.errorMessage}}</div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-success" ng-click="vm.uploader.uploadAll()" ng-disabled="!vm.uploader.getNotUploadedItems().length">
+        <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+    <button type="button" class="btn btn-warning" ng-click="vm.uploader.cancelAll()" ng-disabled="!vm.uploader.isUploading">
+           <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+    </button>
+</div>

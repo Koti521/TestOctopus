@@ -1,0 +1,54 @@
+{
+    "extends": "eslint:recommended", // import best pactices of ES6
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "commonjs": true,
+        "jasmine": true
+    },
+    "globals": {
+        "angular": true,
+        "inject": true,
+        "sinon": false,
+        "chai": false
+    },
+    "rules": { // override airbnb rules
+		"no-undef": "error",
+        "arrow-parens": "off",
+        "no-console": "error",
+        "new-cap": "error",
+        "strict": 0,
+        "no-underscore-dangle": 0,
+        "no-use-before-define": 0,
+        "eol-last": 0,
+        "linebreak-style": ["warn", "windows"],
+        "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "max-len": ["error", 140, { "ignoreComments": true, "ignoreUrls": true }],
+        "curly": ["error", "all"],
+        "complexity": ["error", 10],
+        "no-void": "error",
+        "max-depth": ["error", 3],
+        "max-statements": ["error", 15],
+        "max-params": ["error", 6],
+        "max-nested-callbacks": ["error", 3],
+        "no-bitwise": "error",
+        "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 3 }],
+        "no-this-before-super": "error",
+        "prefer-spread": "error",
+        "import/no-unresolved": "off",
+        "comma-dangle": ["error", "never"],
+        "no-param-reassign": ["error", { "props": false }],
+        "prefer-const": "off",
+        "import/extensions": ["off", "never"],
+        "arrow-body-style": ["off", "never"],
+        "quote-props": ["off"]
+    }
+}
